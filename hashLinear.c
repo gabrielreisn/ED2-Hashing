@@ -6,70 +6,65 @@
 #define N 10
 #define TAMALFABETO 256
 
-
-
-
-#define TAMALFABETO 256
+typedef unsigned char TipoChave;
 
 typedef char TipoChave[N] ;
 typedef unsigned TipoPesos[N] [ TAMALFABETO ] ;
+
 typedef struct TipoItem {
-/*
-∗ outros componentes
-∗
-*/
-TipoChave Chave;
-} TipoItem;
+    TipoChave Chave;
+}TipoItem;
+
 typedef unsigned int TipoIndice;
-typedef struct TipoCelula ∗ TipoApontador;
+
 typedef struct TipoCelula {
 TipoItem Item;
 TipoApontador Prox;
 } TipoCelula;
+
+typedef struct TipoCelula∗ TipoApontador;
+
 typedef struct TipoLista {
-TipoCelula
-∗Primeiro ,
-∗Ultimo;
+    TipoCelula∗ Primeiro,∗Ultimo;
 } TipoLista;
+
 typedef TipoLista TipoDicionario[M] ;
 
-
-TipoIndice h(TipoChave Chave, TipoPesos p)
-{ int i ; unsigned int Soma = 0;
-int comp = strlen (Chave);
-for ( i = 0; i < comp; i ++) Soma += p[ i ] [ (unsigned int)Chave[ i ] ] ;
-return (Soma %M);
+void Inicializa (TipoDicionario T){
+    int i ;
+    
+    for ( i = 0; i < M; i ++) 
+        FLVazia(&T[ i ] ) ;
 }
 
-void Inicializa (TipoDicionario T)
-{ int i ;
-for ( i = 0; i < M; i ++) FLVazia(&T[ i ] ) ;
-}
-TipoApontador Pesquisa(TipoChave Ch, TipoPesos p, TipoDicionario T)
-{
-/
-∗ TipoApontador de retorno aponta para o item anterior da list
-a
+
+TipoApontador Pesquisa(TipoChave Ch, TipoPesos p, TipoDicionario T){
+/*
+∗ TipoApontador de retorno aponta para o item anterior da lista
 ∗
-/
+*/
 TipoIndice i ; TipoApontador Ap;
-i = h(Ch, p);
-if (Vazia(T[ i ] ) ) return NULL ;
-/
+    i = h(Ch, p);
+    
+    if (Vazia(T[ i ] ) ) 
+        return NULL ;
+/*
 ∗ Pesquisa sem sucesso
 ∗
-/
-else
-{ Ap = T[ i ] . Primeiro;
-while (Ap−>Prox−>Prox != NULL &&
-strncmp(Ch, Ap−>Prox−>Item.Chave, sizeof(TipoChave)))
-Ap = Ap−>Prox;
-if ( !strncmp(Ch, Ap−>Prox−>Item.Chave, sizeof(TipoChave))) return Ap;
-else return NULL ;
-/
+*/
+    else{
+        Ap = T[ i ] . Primeiro;
+        
+        while (Ap−>Prox−>Prox != NULL && strncmp(Ch, Ap−>Prox−>Item.Chave, sizeof(TipoChave)))
+            Ap = Ap−>Prox;
+                if ( !strncmp(Ch, Ap−>Prox−>Item.Chave, sizeof(TipoChave))) 
+                    return Ap;
+                else 
+                    return NULL ;
+/*/
 ∗ Pesquisa sem sucesso
 ∗
-/
+*/
 }
 }
 
@@ -87,3 +82,4 @@ if (Ap == NULL)
 printf ( " Registro nao esta presente\n" );
 else Ret(Ap, &T[h(x.Chave, p)] , &x);
 }
+

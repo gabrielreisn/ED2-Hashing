@@ -26,11 +26,15 @@ typedef unsigned int TipoIndice;
 typedef TipoItem TipoDicionario[M] ;
 
 typedef char TipoChave[N] ;
-TipoIndice h(TipoChave Chave, TipoPesos p)
-{ int i ; unsigned int Soma = 0;
-int comp = strlen (Chave);
-for ( i = 0; i < comp; i ++) Soma += p[ i ] [ (unsigned int)Chave[ i ] ] ;
-return (Soma %M);
+
+TipoIndice h(TipoChave Chave, TipoPesos p){
+    int i ; unsigned int Soma = 0;
+    int comp = strlen (Chave);
+    
+    for ( i = 0; i < comp; i ++)
+        Soma += p[ i ] [ (unsigned int)Chave[ i ] ] ;
+    
+    return (Soma %M);
 }
 
 

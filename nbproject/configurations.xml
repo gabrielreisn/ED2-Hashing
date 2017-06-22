@@ -13,7 +13,7 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>enderecamentoAberto.c</itemPath>
+      <itemPath>hashAberto.c</itemPath>
       <itemPath>hashLinear.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
@@ -38,10 +38,13 @@
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
+        <cTool>
+          <standard>10</standard>
+        </cTool>
       </compileType>
-      <item path="enderecamentoAberto.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="hash.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hashAberto.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="hashLinear.c" ex="false" tool="0" flavor2="0">
       </item>
@@ -68,9 +71,9 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="enderecamentoAberto.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="hash.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="hashAberto.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="hashLinear.c" ex="false" tool="0" flavor2="0">
       </item>

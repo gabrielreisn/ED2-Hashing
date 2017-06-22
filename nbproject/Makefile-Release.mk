@@ -35,7 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/enderecamentoAberto.o \
+	${OBJECTDIR}/hashAberto.o \
 	${OBJECTDIR}/hashLinear.o \
 	${OBJECTDIR}/main.o
 
@@ -64,10 +64,10 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ed2-hashing: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ed2-hashing ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/enderecamentoAberto.o: enderecamentoAberto.c 
+${OBJECTDIR}/hashAberto.o: hashAberto.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/enderecamentoAberto.o enderecamentoAberto.c
+	$(COMPILE.c) -O2 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/hashAberto.o hashAberto.c
 
 ${OBJECTDIR}/hashLinear.o: hashLinear.c 
 	${MKDIR} -p ${OBJECTDIR}
