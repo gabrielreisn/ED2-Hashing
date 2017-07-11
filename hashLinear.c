@@ -24,7 +24,7 @@ typedef palavra_t * hash[MAXT];
 static int le_palavra(FILE *fp, char *s) {
     char c;
     int i = 0;
-
+    
 
 
     while ((c = fgetc(fp)) != EOF) {
@@ -32,14 +32,15 @@ static int le_palavra(FILE *fp, char *s) {
         if (isalpha(c))
             break;
         if (c == '\n') {
+            printf("***\n");//barra os casos certos
             linha++;
             //printf("  ***%d\n", linha);
 
         }
     }
-
+    printf("(%c)",c);
     if (c == EOF) {
-
+       
         return 0;
     } else {
         s[i++] = c;
@@ -47,22 +48,25 @@ static int le_palavra(FILE *fp, char *s) {
 
     while (i < MAXT - 1 && (c = fgetc(fp)) != EOF && isalpha(c)) {
         s[i++] = c;
-        if (c == '\n') {
-
-            //printf("  ***%d\n",linha);
-            //linha++;
-        }
+        printf("%c",c);
     }
     s[i] = '\0';
-
+    
+    printf("#");
+    
+    if(c != '\n')
+        return 1;
+    
+    //c=fgetc(fp);
     if (c == '\n') {
+        printf("///\n");    //deixa escapar a ultima palavra
        linha++;
         //printf("  ***%d\n", linha);
 
     }
     
 
-    //printf("%s - %d\n", s, linha);
+    printf(" - %d",linha);
 
     return 1;
 }
