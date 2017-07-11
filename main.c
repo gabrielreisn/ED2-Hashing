@@ -43,11 +43,11 @@ void DefineAlfabeto(short *Alfabeto){
     Alfabeto[0] = FALSE; /* caractere de codigo zero: separador */
 }
 
-
+/*
 int main(int argc, char *argv[]){ 
     ArqTxt = fopen(argv[1], "r");
     ArqAlf = fopen(argv[2], "r");
-    DefineAlfabeto(Alfabeto); /* Le alfabeto definido em arquivo */
+    DefineAlfabeto(Alfabeto); 
     aux = FALSE;
  
     while (fgets(Linha, 256, ArqTxt) != NULL){
@@ -74,5 +74,4 @@ int main(int argc, char *argv[]){
     fclose(ArqAlf);
     
  return 0;
-}
-/* End. */
+}*/
