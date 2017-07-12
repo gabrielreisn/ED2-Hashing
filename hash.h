@@ -12,7 +12,6 @@
 extern "C" {
 #endif
 
-    
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -219,7 +218,7 @@ static void imprime_ordenado(hash tab) {
 }
 
 static void inicializaHash(FILE*fp,char*palavra,hash tabela){
-       inicializa(tabela);
+    inicializa(tabela);
 
     while (le_palavra(fp, palavra)) {
         palavra_t *p = acessa(tabela, palavra);
@@ -232,6 +231,24 @@ static void inicializaHash(FILE*fp,char*palavra,hash tabela){
 
 static void busca(FILE*fp,hash tabela,char* palavra){
     
+    rewind(fp);
+    char buffer[20480];   //linha inteira
+
+    palavra_t *p = acessa(tabela, palavra);  
+    
+    
+    
+    int j=0;
+    for (int i = 0; i < p->qtd; i++) {
+        for (j = 0; j < (p->ocorrencias[i]); j++) {
+                fgets (buffer, 20480, fp);
+                
+            }
+        printf("%d - ",j);
+        puts(buffer);
+        
+        rewind(fp);
+        }
 }
 
 

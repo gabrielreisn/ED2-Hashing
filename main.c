@@ -26,6 +26,19 @@ int main(int argc, char ** argv) {
 
     inicializaHash(fp,palavra,tabelaHash);
     
-    imprime_ordenado(tabelaHash);  //imprime por ordem decrescente da ocorrencia das palavras, precisa imprimir por ordem alfabetica
+    //--------------------------------------------
+    int qtd;
+    printf("buscar quantas palavras?:");
+    scanf("%d",&qtd);
+    
+    int i;
+    for (i = 0; i < qtd; i++) {
+        printf("digite a palavra:");
+        scanf("%s",&palavra);
+        busca(fp,tabelaHash,palavra);
+    }
+
+    
+    //imprime_ordenado(tabelaHash);  //imprime por ordem decrescente da ocorrencia das palavras, precisa imprimir por ordem alfabetica
     return 0;
 }
