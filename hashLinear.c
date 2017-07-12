@@ -9,6 +9,7 @@
 
 
 int linha = 1;
+int flag = 0;
 
 typedef struct palavra palavra_t;
 
@@ -25,6 +26,10 @@ static int le_palavra(FILE *fp, char *s) {
     char c;
     int i = 0;
     
+        if(flag==1){
+            linha++;
+            flag=0;
+        }
 
 
     while ((c = fgetc(fp)) != EOF) {
@@ -32,13 +37,13 @@ static int le_palavra(FILE *fp, char *s) {
         if (isalpha(c))
             break;
         if (c == '\n') {
-            printf("***\n");//barra os casos certos
+            //printf("***\n");//barra os casos certos
             linha++;
             //printf("  ***%d\n", linha);
 
         }
     }
-    printf("(%c)",c);
+    //printf("%c",c);
     if (c == EOF) {
        
         return 0;
@@ -48,25 +53,27 @@ static int le_palavra(FILE *fp, char *s) {
 
     while (i < MAXT - 1 && (c = fgetc(fp)) != EOF && isalpha(c)) {
         s[i++] = c;
-        printf("%c",c);
+        //printf("%c",c);
     }
     s[i] = '\0';
     
-    printf("#");
+    //printf("#");
     
     if(c != '\n')
         return 1;
     
     //c=fgetc(fp);
     if (c == '\n') {
-        printf("///\n");    //deixa escapar a ultima palavra
-       linha++;
+        //printf("///\n");    //deixa escapar a ultima palavra
+        //linha++;
+        flag=1;
         //printf("  ***%d\n", linha);
 
     }
     
 
-    printf(" - %d",linha);
+
+    //printf(" - %d",linha);
 
     return 1;
 }
@@ -211,7 +218,7 @@ int main(int argc, char ** argv) {
         p->ocorrencias[p->qtd] = linha;
         p->qtd++;
     }
-        
+    printf("\n");
     imprime_ordenado(tabelaHash);  //imprime por ordem decrescente da ocorrencia das palavras, precisa imprimir por ordem alfabetica
     return 0;
 }
