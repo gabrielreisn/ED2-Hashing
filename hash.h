@@ -16,41 +16,6 @@ extern "C" {
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-/*
-#define MAXP 640
-#define MAXT 12700
-
-
-int linha = 1;
-int flag = 0;
-
-typedef struct palavra palavra_t;
-
-struct palavra {
-    char palavra[MAXP];
-    int qtd;
-    int ocorrencias[MAXP];
-    palavra_t *prox;
-};
-
-typedef palavra_t * hash[MAXT];
-
-static int le_palavra(FILE *fp, char *s);
-
-static void inicializa(hash tab);
-
-static int f_hash(char *s);
-
-static palavra_t *acessa(hash tab, char *s);
-
-static int cont_elems(hash tab);
-
-static palavra_t ** cria_vet(int n, hash tab)  ;
-
-static int compara(const void *v1, const void *v2);
-
-static void imprime_ordenado(hash tab);
-*/
     
 #define MAXP 640
 #define MAXT 12700
@@ -82,7 +47,7 @@ static int le_palavra(FILE *fp, char *s) {
 
     while ((c = fgetc(fp)) != EOF) {
         
-        if (isalpha(c))
+        if (isalpha(c) || c=='-')
             break;
         if (c == '\n') {
             linha++;

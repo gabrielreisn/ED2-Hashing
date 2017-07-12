@@ -7,7 +7,7 @@ comando */
 #include <stdio.h>
 #include "hash.h"
 //#include "hashLinear.c"
-
+/*
 int main(int argc, char ** argv) {
 
     FILE *fp;
@@ -41,4 +41,4 @@ int main(int argc, char ** argv) {
     
     //imprime_ordenado(tabelaHash);  //imprime por ordem decrescente da ocorrencia das palavras, precisa imprimir por ordem alfabetica
     return 0;
-}
+}*/

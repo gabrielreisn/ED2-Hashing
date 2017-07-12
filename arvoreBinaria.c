@@ -131,9 +131,8 @@ void Permut( TipoChave A[], int n) {
       A[j] = b;
     }
 }
-/*
-int main(int argc, char *argv[])
-{
+
+int main(int argc, char *argv[]){
   struct timeval t; TipoNo *Dicionario;
   TipoRegistro x; TipoChave vetor[MAX];
   int i, j, k, n;
@@ -183,4 +182,3 @@ int main(int argc, char *argv[])
     }
   return 0;
 } 
-*/
