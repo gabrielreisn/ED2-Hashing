@@ -2,9 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include "hash.h"
-
-#define MAXP 64
+//#include "hash.h"
+/*
+#define MAXP 640
 #define MAXT 12700
 
 
@@ -33,19 +33,15 @@ static int le_palavra(FILE *fp, char *s) {
 
 
     while ((c = fgetc(fp)) != EOF) {
-        //printf("%c",c);
+        
         if (isalpha(c))
             break;
         if (c == '\n') {
-            //printf("***\n");//barra os casos certos
             linha++;
-            //printf("  ***%d\n", linha);
-
         }
     }
-    //printf("%c",c);
-    if (c == EOF) {
-       
+    
+    if (c == EOF) {   
         return 0;
     } else {
         s[i++] = c;
@@ -53,27 +49,17 @@ static int le_palavra(FILE *fp, char *s) {
 
     while (i < MAXT - 1 && (c = fgetc(fp)) != EOF && isalpha(c)) {
         s[i++] = c;
-        //printf("%c",c);
     }
-    s[i] = '\0';
     
-    //printf("#");
+    s[i] = '\0';
     
     if(c != '\n')
         return 1;
     
-    //c=fgetc(fp);
-    if (c == '\n') {
-        //printf("///\n");    //deixa escapar a ultima palavra
-        //linha++;
-        flag=1;
-        //printf("  ***%d\n", linha);
-
-    }
     
-
-
-    //printf(" - %d",linha);
+    if (c == '\n') {
+        flag=1;
+    }
 
     return 1;
 }
@@ -163,18 +149,6 @@ static int compara(const void *v1, const void *v2) {
 
 }
 
-/*
-static int compara (const void *v1, const void *v2){
-        palavra_t ** p1 = (palavra_t **) v1;
-        palavra_t ** p2 = (palavra_t **) v2;
-	
-        if ((*p1)->qtd > (*p2)->qtd) return -1;
-        else if ((*p1)->qtd < (*p2)->qtd) return 1;
-        else return strcmp ((*p2)->palavra, (*p2)->palavra);
-	
-}
- */
-
 static void imprime_ordenado(hash tab) {
     int i, j;
     int qtd;
@@ -194,32 +168,6 @@ static void imprime_ordenado(hash tab) {
         printf("\n");
     }
 }
+*/
 
-int main(int argc, char ** argv) {
-
-    FILE *fp;
-    hash tabelaHash;
-    char palavra[MAXP];
-
-    if (argc < 2) {
-        printf("Arquivo de entrada não fornecido");
-        return 0;
-    }
-    fp = fopen(argv[1], "rt");
-    if (fp == NULL) {
-        printf("Erro na abertura do arquivo");
-        return 0;
-    }
-
-    inicializa(tabelaHash);
-
-    while (le_palavra(fp, palavra)) {
-        palavra_t *p = acessa(tabelaHash, palavra);
-        p->ocorrencias[p->qtd] = linha;
-        p->qtd++;
-    }
-    printf("\n");
-    imprime_ordenado(tabelaHash);  //imprime por ordem decrescente da ocorrencia das palavras, precisa imprimir por ordem alfabetica
-    return 0;
-}
 
