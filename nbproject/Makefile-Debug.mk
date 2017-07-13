@@ -35,6 +35,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/arvore.o \
 	${OBJECTDIR}/arvoreBinaria.o \
 	${OBJECTDIR}/hashLinear.o \
 	${OBJECTDIR}/main.o
@@ -63,6 +64,11 @@ LDLIBSOPTIONS=
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ed2-hashing: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/ed2-hashing ${OBJECTFILES} ${LDLIBSOPTIONS}
+
+${OBJECTDIR}/arvore.o: arvore.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/arvore.o arvore.c
 
 ${OBJECTDIR}/arvoreBinaria.o: arvoreBinaria.c 
 	${MKDIR} -p ${OBJECTDIR}

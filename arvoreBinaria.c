@@ -1,23 +1,33 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
+#include <ctype.h>
 #include <limits.h>
 #include <sys/time.h>
 
 #define MAX  10
 
-typedef long TipoChave;
-typedef struct TipoRegistro {
-  TipoChave Chave;
-  /* outros componentes */
-} TipoRegistro;
+#define MAXP 640
+#define MAXT 12700
+
+typedef char* TipoChave;
+
+typedef struct palavra {
+    TipoChave Chave;
+    int qtd;
+    int ocorrencias[MAXP];
+} palavra;
+
 typedef struct TipoNo * TipoApontador;
+
 typedef struct TipoNo {
-  TipoRegistro Reg;
-  TipoApontador Esq, Dir;
+  palavra Reg;
+  TipoApontador Esq; 
+  TipoApontador Dir;
 } TipoNo;
 typedef TipoApontador TipoDicionario;
 
-void Pesquisa(TipoRegistro *x, TipoApontador *p)
+void Pesquisa(palavra *x, TipoApontador *p)
 { if (*p == NULL) 
   { printf("Erro: Registro nao esta presente na arvore\n");
     return;
@@ -31,7 +41,7 @@ void Pesquisa(TipoRegistro *x, TipoApontador *p)
   else *x = (*p)->Reg;
 } 
 
-void Insere(TipoRegistro x, TipoApontador *p)
+void Insere(palavra x, TipoApontador *p)
 { if (*p == NULL) 
   { *p = (TipoApontador)malloc(sizeof(TipoNo));
     (*p)->Reg = x; 
@@ -62,7 +72,7 @@ void Antecessor(TipoApontador q, TipoApontador *r)
   free(q);
 } 
 
-void Retira(TipoRegistro x, TipoApontador *p)
+void Retira(palavra x, TipoApontador *p)
 {  TipoApontador Aux;
   if (*p == NULL) 
   { printf("Erro : Registro nao esta na arvore\n");
@@ -132,19 +142,20 @@ void Permut( TipoChave A[], int n) {
     }
 }
 
-int main(int argc, char *argv[]){
+int main(int argc, char *argv[])
+{
   struct timeval t; TipoNo *Dicionario;
-  TipoRegistro x; TipoChave vetor[MAX];
+  palavra x; TipoChave vetor[MAX];
   int i, j, k, n;
 
   Inicializa(&Dicionario);
-  //Gera uma permutação aleatoria de chaves entre 1 e MAX
+  /* Gera uma permutação aleatoria de chaves entre 1 e MAX */
   for (i = 0; i < MAX; i++) vetor[i] = i+1;
   gettimeofday(&t,NULL);
   srand((unsigned int)t.tv_usec);
   Permut(vetor,MAX-1);
   
-  // Insere cada chave na arvore e testa sua integridade apos cada insercao
+  /* Insere cada chave na arvore e testa sua integridade apos cada insercao */
   for (i = 0; i < MAX; i++) 
     { x.Chave = vetor[i];
       Insere(x, &Dicionario);
@@ -152,7 +163,7 @@ int main(int argc, char *argv[]){
      Testa(Dicionario);
     }
 
-  // Retira uma chave aleatoriamente e realiza varias pesquisas
+  /* Retira uma chave aleatoriamente e realiza varias pesquisas */
   for (i = 0; i <= MAX; i++) 
     { k = (int) (10.0*rand()/(RAND_MAX+1.0));
       n = vetor[k];
@@ -173,7 +184,7 @@ int main(int argc, char *argv[]){
       Testa(Dicionario);
     }
 
-  // Retira a raiz da arvore ate que ela fique vazia 
+  /* Retira a raiz da arvore ate que ela fique vazia */
   for (i = 0; i < MAX; i++) 
     { x.Chave = Dicionario->Reg.Chave;
       Retira(x, &Dicionario);
