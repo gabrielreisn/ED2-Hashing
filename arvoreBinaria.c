@@ -141,7 +141,7 @@ void Permut( TipoChave A[], int n) {
       A[j] = b;
     }
 }
-
+/*
 int main(int argc, char *argv[])
 {
   struct timeval t; TipoNo *Dicionario;
@@ -149,13 +149,13 @@ int main(int argc, char *argv[])
   int i, j, k, n;
 
   Inicializa(&Dicionario);
-  /* Gera uma permutação aleatoria de chaves entre 1 e MAX */
+  
   for (i = 0; i < MAX; i++) vetor[i] = i+1;
   gettimeofday(&t,NULL);
   srand((unsigned int)t.tv_usec);
   Permut(vetor,MAX-1);
   
-  /* Insere cada chave na arvore e testa sua integridade apos cada insercao */
+  
   for (i = 0; i < MAX; i++) 
     { x.Chave = vetor[i];
       Insere(x, &Dicionario);
@@ -163,7 +163,7 @@ int main(int argc, char *argv[])
      Testa(Dicionario);
     }
 
-  /* Retira uma chave aleatoriamente e realiza varias pesquisas */
+ 
   for (i = 0; i <= MAX; i++) 
     { k = (int) (10.0*rand()/(RAND_MAX+1.0));
       n = vetor[k];
@@ -184,7 +184,7 @@ int main(int argc, char *argv[])
       Testa(Dicionario);
     }
 
-  /* Retira a raiz da arvore ate que ela fique vazia */
+  
   for (i = 0; i < MAX; i++) 
     { x.Chave = Dicionario->Reg.Chave;
       Retira(x, &Dicionario);
@@ -192,4 +192,4 @@ int main(int argc, char *argv[])
       printf("Retirou chave: %ld\n", x.Chave);
     }
   return 0;
-} 
+} */

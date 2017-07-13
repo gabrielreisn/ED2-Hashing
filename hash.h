@@ -47,7 +47,7 @@ static int le_palavra(FILE *fp, char *s) {
 
     while ((c = fgetc(fp)) != EOF) {
         
-        if (isalpha(c) || c=='-')
+        if (isalpha(c))
             break;
         if (c == '\n') {
             linha++;
@@ -60,7 +60,7 @@ static int le_palavra(FILE *fp, char *s) {
         s[i++] = c;
     }
 
-    while (i < MAXT - 1 && (c = fgetc(fp)) != EOF && (isalpha(c) || c=='-')) {
+    while (i < MAXT - 1 && (c = fgetc(fp) || c=='-') != EOF && (isalpha(c) || c=='-')) {
         s[i++] = c;
     }
     
