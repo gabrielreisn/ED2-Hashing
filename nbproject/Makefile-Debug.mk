@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
 CND_CONF=Debug
 CND_DISTDIR=dist
@@ -36,8 +36,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/arvore.o \
-	${OBJECTDIR}/arvoreBinaria.o \
-	${OBJECTDIR}/hashLinear.o \
 	${OBJECTDIR}/main.o
 
 
@@ -70,15 +68,10 @@ ${OBJECTDIR}/arvore.o: arvore.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/arvore.o arvore.c
 
-${OBJECTDIR}/arvoreBinaria.o: arvoreBinaria.c 
+${OBJECTDIR}/arvore.h.gch: arvore.h 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/arvoreBinaria.o arvoreBinaria.c
-
-${OBJECTDIR}/hashLinear.o: hashLinear.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/hashLinear.o hashLinear.c
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o "$@" arvore.h
 
 ${OBJECTDIR}/main.o: main.c 
 	${MKDIR} -p ${OBJECTDIR}

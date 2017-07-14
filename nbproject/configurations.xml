@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="97">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>arvore.h</itemPath>
       <itemPath>hash.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -14,8 +15,6 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>arvore.c</itemPath>
-      <itemPath>arvoreBinaria.c</itemPath>
-      <itemPath>hashLinear.c</itemPath>
       <itemPath>keys</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>text</itemPath>
@@ -47,11 +46,9 @@
       </compileType>
       <item path="arvore.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="arvoreBinaria.c" ex="false" tool="0" flavor2="0">
+      <item path="arvore.h" ex="false" tool="0" flavor2="0">
       </item>
       <item path="hash.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="hashLinear.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="keys" ex="false" tool="3" flavor2="0">
       </item>
@@ -82,11 +79,9 @@
       </compileType>
       <item path="arvore.c" ex="false" tool="0" flavor2="0">
       </item>
-      <item path="arvoreBinaria.c" ex="false" tool="0" flavor2="0">
+      <item path="arvore.h" ex="false" tool="0" flavor2="0">
       </item>
       <item path="hash.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="hashLinear.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="keys" ex="false" tool="3" flavor2="0">
       </item>
