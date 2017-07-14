@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "arvore.h"
-
+/*
 int main(int argc, char** argv) {
 
     NoArv* arv;
@@ -51,5 +51,5 @@ int main(int argc, char** argv) {
     abb_imprime(arv);
 
     return (EXIT_SUCCESS);
-}
+}*/
 

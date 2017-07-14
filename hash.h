@@ -60,7 +60,7 @@ static int le_palavra(FILE *fp, char *s) {
         s[i++] = c;
     }
 
-    while (i < MAXT - 1 && (c = fgetc(fp) || c=='-') != EOF && (isalpha(c) || c=='-')) {
+    while (i < MAXT - 1 && (c = fgetc(fp)) != EOF && (isalpha(c))) {
         s[i++] = c;
     }
     
@@ -216,7 +216,34 @@ static void busca(FILE*fp,hash tabela,char* palavra){
         }
 }
 
+static void buscaLinha(FILE*fp,int linha){
+    
+    rewind(fp);
+    char buffer[20480];   //linha inteira
 
+    
+    int i;
+    for (i = 0; i < linha; i++) {
+        fgets (buffer, 20480, fp);    
+        //printf("%d - ",j);
+        //puts(buffer);
+    }   
+        //rewind(fp);
+    printf("%d - ",i);
+    puts(buffer);
+}
+
+int contains(int* vector,int size,int number){
+    
+    for (int i = 0; i < size; i++) {
+            
+        if(number==vector[i]){
+            return 1;
+        }
+    }
+    
+    return 0;
+}
     
     
     
