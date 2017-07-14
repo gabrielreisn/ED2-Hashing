@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "arvore.h"
-/*
+
 int main(int argc, char** argv) {
 
     NoArv* arv;
@@ -27,9 +27,6 @@ int main(int argc, char** argv) {
     char palavra[640];
 
 
-    //CLAUDINHA WAS A MISTAKE, ITS NOTHING BUT TRASH AND PANQUECA AMERICANA
-
-
     while (le_palavra(file2, palavra)) {
         arv = abb_insere(arv, palavra);
     }
@@ -51,5 +48,5 @@ int main(int argc, char** argv) {
     abb_imprime(arv);
 
     return (EXIT_SUCCESS);
-}*/
+}
 

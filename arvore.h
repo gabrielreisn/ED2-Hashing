@@ -128,6 +128,35 @@ static int le_palavra(FILE *fp, char *s) {
     return 1;
 }
 
+static void buscaLinha(FILE*fp,int linha){
+    
+    rewind(fp);
+    char buffer[20480];   //linha inteira
+
+    
+    int i;
+    for (i = 0; i < linha; i++) {
+        fgets (buffer, 20480, fp);    
+        //printf("%d - ",j);
+        //puts(buffer);
+    }   
+        //rewind(fp);
+    printf("%d - ",i);
+    puts(buffer);
+}
+
+int contains(int* vector,int size,int number){
+    
+    for (int i = 0; i < size; i++) {
+            
+        if(number==vector[i]){
+            return 1;
+        }
+    }
+    
+    return 0;
+}
+
 
 
 #ifdef __cplusplus
